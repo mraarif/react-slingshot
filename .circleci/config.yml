@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - checkout
-      - run: npm run audit
+      - run: npm audit
 
 workflows:
   build_test_analyze:
