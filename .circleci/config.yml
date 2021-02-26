@@ -6,6 +6,7 @@ jobs:
       - image: circleci/node
     steps:
       - checkout
+      - run: pwd
       - run: npm install
       - save_cache:
           key: packages-cache
@@ -22,6 +23,7 @@ jobs:
       - restore_cache:
           keys:
             - packages-cache
+      - run: pwd
       - run: npm run test
 
   analyze:
