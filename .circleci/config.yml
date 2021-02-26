@@ -24,6 +24,7 @@ jobs:
           keys:
             - packages-cache
       - run: pwd
+      - run: npm list -g --depth=0 
       - run: npm run test
 
   analyze:
