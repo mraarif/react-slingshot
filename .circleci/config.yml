@@ -6,12 +6,7 @@ jobs:
       - image: circleci/node
     steps:
       - checkout
-      - run: pwd
       - run: npm install
-      - save_cache:
-          key: packages-cache
-          paths:
-            -  ~/usr/local/lib/node_modules
       - run: npm run lint
 
   test:
@@ -20,11 +15,7 @@ jobs:
 
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - packages-cache
-      - run: pwd
-      - run: npm list -g --depth=0 
+      - run: npm install
       - run: npm run test
 
   analyze:
@@ -33,9 +24,6 @@ jobs:
 
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - packages-cache
       - run: npm run audit
 
 workflows:
