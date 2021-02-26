@@ -8,9 +8,9 @@ jobs:
       - checkout
       - run: npm install
       - save_cache:
-        key: packages-cache
-        paths:
-          - ~/node_modules
+          key: packages-cache
+          paths:
+            - ~/node_modules
       - run: npm run lint
 
   test:
